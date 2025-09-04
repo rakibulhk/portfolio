@@ -1,0 +1,291 @@
+/* Custom styles */
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    line-height: 1.6;
+}
+
+/* Header scroll effect */
+.header-scrolled {
+    background-color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #14B8A6;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0F766E;
+}
+
+/* Animation classes */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Loading spinner */
+.spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Form validation styles */
+.input-error {
+    border-color: #ef4444 !important;
+    background-color: #fef2f2 !important;
+}
+
+.input-success {
+    border-color: #10b981 !important;
+}
+
+/* Smooth transitions for all interactive elements */
+button, a, input, textarea {
+    transition: all 0.2s ease;
+}
+
+/* Portfolio grid animations */
+.portfolio-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Service card hover effects */
+.service-card {
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Modal animations */
+#project-modal {
+    animation: fadeIn 0.3s ease;
+}
+
+#project-modal .bg-white {
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile menu animation */
+#mobile-menu {
+    transition: all 0.3s ease;
+}
+
+#mobile-menu.show {
+    display: block;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+    .text-5xl {
+        font-size: 2.5rem;
+    }
+    
+    .text-6xl {
+        font-size: 3rem;
+    }
+}
+
+/* Design system colors and animated page background */
+:root {
+    --accent-1: #06b6d4; /* cyan */
+    --accent-2: #06b6d4; /* teal */
+    --accent-3: #7c3aed; /* purple */
+    --accent-4: #f97316; /* orange */
+    --bg-1: #f8fafc;
+}
+
+body {
+    background: radial-gradient(1200px 600px at 10% 10%, rgba(124,58,237,0.06), transparent 10%),
+                radial-gradient(1000px 500px at 90% 80%, rgba(6,182,212,0.05), transparent 12%),
+                linear-gradient(180deg, var(--bg-1), #ffffff);
+    background-attachment: fixed;
+    transition: background 800ms ease;
+    /* animated subtle moving gradient layer */
+    background-size: 200% 200%, 200% 200%, 100% 100%;
+    animation: pageGradient 18s ease-in-out infinite;
+}
+
+@keyframes pageGradient {
+    0% { background-position: 0% 50%, 100% 50%, 0% 0%; }
+    50% { background-position: 100% 50%, 0% 50%, 0% 0%; }
+    100% { background-position: 0% 50%, 100% 50%, 0% 0%; }
+}
+
+/* Make headings feel more alive when the page loads */
+.site-loaded h1, .site-loaded h2 {
+    transform-origin: left center;
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    transition: transform 700ms cubic-bezier(.2,.9,.2,1), opacity 700ms ease;
+}
+
+/* initial hidden state for headings until site-loaded toggles them */
+h1, h2 {
+    opacity: 0.01;
+    transform: translateY(6px) scale(0.995);
+}
+
+/* Smooth global micro-interaction timing */
+* { transition-duration: 280ms; transition-timing-function: cubic-bezier(.2,.9,.2,1); }
+
+/* Slightly stronger hover lift for cards with smooth easing */
+.service-card:hover, .portfolio-item:hover {
+    transform: translateY(-6px) scale(1.005);
+    transition: transform 360ms cubic-bezier(.2,.9,.2,1), box-shadow 360ms ease;
+}
+
+/* CTA gradient micro-animations */
+.primary-cta {
+    background-image: linear-gradient(90deg, var(--accent-1), var(--accent-3));
+    background-size: 200% 100%;
+}
+
+.primary-cta:hover {
+    background-position: 100% 0;
+    transform: translateY(-2px) scale(1.01);
+}
+
+/* Make floating blobs and mockup more subtle on mobile */
+@media (max-width: 640px) {
+    .mockup-card .floating-card { display: none; }
+    body { animation-duration: 0s; }
+}
+
+/* reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    body { animation: none !important; transition: none !important; }
+    * { transition: none !important; animation: none !important; }
+}
+
+/* Hero mockup card */
+.mockup-card {
+    position: relative;
+    display: inline-block;
+}
+
+.device-frame {
+    width: 100%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(250,250,250,0.8));
+    border: 1px solid rgba(15,23,42,0.04);
+    transform: perspective(900px) rotateY(-6deg) rotateX(2deg);
+    transition: transform 400ms cubic-bezier(.2,.9,.2,1), box-shadow 300ms ease;
+}
+
+.device-frame:hover {
+    transform: perspective(900px) rotateY(0deg) rotateX(0deg) translateY(-6px);
+}
+
+.floating-card {
+    position: absolute;
+    background: rgba(255,255,255,0.85);
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-weight: 600;
+    color: #0f172a;
+    box-shadow: 0 10px 20px rgba(2,6,23,0.06);
+    font-size: 0.8rem;
+}
+
+.floating-card.c1 { top: -16px; left: -10px; transform: rotate(-6deg); }
+.floating-card.c2 { bottom: -12px; right: 12px; transform: rotate(6deg); }
+.floating-card.c3 { top: 18%; right: -28px; transform: rotate(-4deg); }
+
+/* Primary CTA polish */
+.primary-cta {
+    background-image: linear-gradient(90deg, #06b6d4 0%, #06b6d4 100%);
+    box-shadow: 0 12px 30px rgba(6,182,212,0.16);
+}
+
+/* Navigation underline for active state */
+.nav-link.active {
+    position: relative;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -8px;
+    height: 3px;
+    background: linear-gradient(90deg,#06b6d4,#06b6d4);
+    border-radius: 4px;
+}
+
+/* slight card grouping contrast */
+.service-card, .portfolio-item > div {
+    background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(250,250,250,0.98));
+}
+
+/* accessibility: prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    .device-frame, .blob, .floating-card, .primary-cta, .hero-cta { transition: none !important; animation: none !important; }
+}
