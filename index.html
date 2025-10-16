@@ -171,7 +171,7 @@
           </button>
         </div>
         <div class="projects-grid">
-          <a class="project-card" v-for="project in filteredProjects" :key="project.title" :href="project.link" target="_blank"
+          <a style="text-decoration:  none;" class="project-card" v-for="project in filteredProjects" :key="project.title" :href="project.link" target="_blank"
             :data-category="project.category">
             <div class="project-image">
               <img :src="project.image" :alt="project.title" />
@@ -324,7 +324,7 @@
             title: 'Vapeless app Case study',
             category: 'Case Study',
             categoryDisplay: 'Case Study',
-            image: '/images/Case_study1.png',
+            image: 'images/Case_study1.png',
             date: '25 oct, 2024',
             link: "https://www.behance.net/gallery/225889393/UXUI-Case-Study-Vapless-A-Smart-Way-to-Quit-Vaping",
           },
