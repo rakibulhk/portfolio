@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rakibul Hasan Khan - UX UI Designer</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rakibul Hasan Khan - UX UI Designer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <!-- Vue.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
     <!-- Navigation -->
     <nav class="navbar">
       <div class="nav-container">
@@ -18,14 +20,14 @@
           <span>UX AURA</span>
         </div>
         <ul class="nav-menu">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
+          <li><a href="#home" @click="scrollToSection('home')">Home</a></li>
+          <li><a href="#services" @click="scrollToSection('services')">Services</a></li>
+          <li><a href="#about" @click="scrollToSection('about')">About</a></li>
+          <li><a href="#projects" @click="scrollToSection('projects')">Projects</a></li>
           <li><a href="mailto:rakibulhasannehad2025@gmail.com">Contact</a></li>
         </ul>
-        <button class="contact-btn">CONTACT NOW</button>
-        <div class="hamburger">
+        <button class="contact-btn" @click="scrollToSection('contact')">CONTACT NOW</button>
+        <div class="hamburger" @click="toggleMobileMenu">
           <span></span>
           <span></span>
           <span></span>
@@ -50,8 +52,8 @@
             design tools and user-centered design principles.
           </p>
           <div class="hero-buttons">
-            <button class="btn-primary">HIRE ME</button>
-            <button class="btn-secondary">Explore my work</button>
+            <button class="btn-primary" @click="scrollToSection('contact')">HIRE ME</button>
+            <button class="btn-secondary" @click="scrollToSection('projects')">Explore my work</button>
           </div>
           <div class="hero-stats">
             <div class="stat-item">
@@ -65,7 +67,7 @@
           </div>
         </div>
       </div>
-      <div class="scroll-down">
+      <div class="scroll-down" @click="scrollToSection('services')">
         <span>Scroll Down</span>
         <i class="fas fa-arrow-down"></i>
       </div>
@@ -79,83 +81,15 @@
           <p>What can I do for you? I provide comprehensive design solutions</p>
         </div>
         <div class="services-grid">
-          <div class="service-card">
+          <div class="service-card" v-for="service in services" :key="service.title">
             <div class="service-icon">
-              <i class="fas fa-desktop"></i>
+              <i :class="service.icon"></i>
             </div>
-            <h3>Website Design</h3>
-            <p>
-              Creative and modern website designs that engage users and deliver
-              results
-            </p>
-            <a href="#" class="service-link"
-              >Explore Service <i class="fas fa-arrow-right"></i
-            ></a>
-          </div>
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-mobile-alt"></i>
-            </div>
-            <h3>App Design</h3>
-            <p>
-              Mobile app interfaces that provide seamless user experiences
-              across platforms
-            </p>
-            <a href="#" class="service-link"
-              >Explore Service <i class="fas fa-arrow-right"></i
-            ></a>
-          </div>
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-paint-brush"></i>
-            </div>
-            <h3>Creative Solutions</h3>
-            <p>
-              Innovative design solutions tailored to your brand and business
-              objectives
-            </p>
-            <a href="#" class="service-link"
-              >Explore Service <i class="fas fa-arrow-right"></i
-            ></a>
-          </div>
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-code"></i>
-            </div>
-            <h3>Business Intelligence</h3>
-            <p>
-              Data-driven design decisions that help optimize user experience
-              and conversions
-            </p>
-            <a href="#" class="service-link"
-              >Explore Service <i class="fas fa-arrow-right"></i
-            ></a>
-          </div>
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-chart-bar"></i>
-            </div>
-            <h3>Marketing/branding</h3>
-            <p>
-              Complete brand identity and marketing material design for your
-              business
-            </p>
-            <a href="#" class="service-link"
-              >Explore Service <i class="fas fa-arrow-right"></i
-            ></a>
-          </div>
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-layer-group"></i>
-            </div>
-            <h3>Logo Design</h3>
-            <p>
-              Professional logo designs that represent your brand identity
-              perfectly
-            </p>
-            <a href="#" class="service-link"
-              >Explore Service <i class="fas fa-arrow-right"></i
-            ></a>
+            <h3>{{ service.title }}</h3>
+            <p>{{ service.description }}</p>
+            <a href="#" class="service-link">
+              Explore Service <i class="fas fa-arrow-right"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -168,7 +102,7 @@
           <h2>My <span class="highlight">Specialty</span></h2>
           <p>
             I specialize in creating comprehensive design solutions that combine
-            creativity with functionality. তুমি ছুঁয়ে দিলে আমি রঙিন হয়ে উঠব!
+            creativity with functionality.
           </p>
         </div>
         <div class="about-content">
@@ -192,46 +126,20 @@
               functional and user-friendly.
             </p>
             <button class="btn-primary">
-              <a style="color: white; text-decoration: none;" href="https://drive.google.com/drive/folders/1Y4V30up4UGO3TcQ3gbcvJCiTdPxWkXlk?usp=sharing" target="_blank">
-              <i class="fas fa-download"></i> Download Resume</a>
+              <a style="color: white; text-decoration: none;"
+                href="https://drive.google.com/drive/folders/1Y4V30up4UGO3TcQ3gbcvJCiTdPxWkXlk?usp=sharing"
+                target="_blank">
+                <i class="fas fa-download"></i> Download Resume</a>
             </button>
           </div>
         </div>
         <div class="stats-grid">
-          <div class="stat-circle">
-            <div class="circle-progress" data-percent="100">
+          <div class="stat-circle" v-for="skill in skills" :key="skill.name">
+            <div class="circle-progress" :data-percent="skill.percentage">
               <div class="circle-fill"></div>
-              <div class="circle-text">100%</div>
+              <div class="circle-text">{{ skill.percentage }}%</div>
             </div>
-            <span>Figma</span>
-          </div>
-          <div class="stat-circle">
-            <div class="circle-progress" data-percent="100">
-              <div class="circle-fill"></div>
-              <div class="circle-text">100%</div>
-            </div>
-            <span>Adobe XD</span>
-          </div>
-          <div class="stat-circle">
-            <div class="circle-progress" data-percent="85">
-              <div class="circle-fill"></div>
-              <div class="circle-text">80%</div>
-            </div>
-            <span>Adobe Illustrator</span>
-          </div>
-          <div class="stat-circle">
-            <div class="circle-progress" data-percent="60">
-              <div class="circle-fill"></div>
-              <div class="circle-text">60%</div>
-            </div>
-            <span>Adobe Photoshop</span>
-          </div>
-          <div class="stat-circle">
-            <div class="circle-progress" data-percent="92">
-              <div class="circle-fill"></div>
-              <div class="circle-text">80%</div>
-            </div>
-            <span>Canva</span>
+            <span>{{ skill.name }}</span>
           </div>
         </div>
       </div>
@@ -245,65 +153,38 @@
           <p>Take a look at some of my recent work and creative projects</p>
         </div>
         <div class="project-filter">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="mobile">Mobile Design</button>
-          <button class="filter-btn" data-filter="website">
+          <button class="filter-btn" :class="{ active: activeFilter === 'all' }" @click="setFilter('all')">
+            All
+          </button>
+          <button class="filter-btn" :class="{ active: activeFilter === 'mobile' }" @click="setFilter('mobile')">
+            Mobile Design
+          </button>
+          <button class="filter-btn" :class="{ active: activeFilter === 'website' }" @click="setFilter('website')">
             Website Design
           </button>
-          <button class="filter-btn" data-filter="case-study">
+          <button class="filter-btn" :class="{ active: activeFilter === 'case-study' }"
+            @click="setFilter('case-study')">
             Case Study
           </button>
-          <button class="filter-btn" data-filter="branding">Branding</button>
+          <button class="filter-btn" :class="{ active: activeFilter === 'branding' }" @click="setFilter('branding')">
+            Branding
+          </button>
         </div>
         <div class="projects-grid">
-          <div class="project-card" data-category="mobile">
+          <a class="project-card" v-for="project in filteredProjects" :key="project.title" :href="project.link" target="_blank"
+            :data-category="project.category">
             <div class="project-image">
-              <img
-                src="https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg?auto=compress&cs=tinysrgb&w=500"
-                alt="Social Media App"
-              />
+              <img :src="project.image" :alt="project.title" />
               <div class="project-overlay">
                 <button class="view-btn"><i class="fas fa-eye"></i></button>
               </div>
             </div>
             <div class="project-info">
-              <span class="project-category">Mobile Design</span>
-              <h3>Social Media App Design</h3>
-              <span class="project-date">15 Aug, 2023</span>
+              <span class="project-category">{{ project.categoryDisplay }}</span>
+              <h3>{{ project.title }}</h3>
+              <span class="project-date">{{ project.date }}</span>
             </div>
-          </div>
-          <div class="project-card" data-category="website">
-            <div class="project-image">
-              <img
-                src="https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=500"
-                alt="Sugee App"
-              />
-              <div class="project-overlay">
-                <button class="view-btn"><i class="fas fa-eye"></i></button>
-              </div>
-            </div>
-            <div class="project-info">
-              <span class="project-category">Website Design</span>
-              <h3>Sugee - Loan Management System for Rural Sector</h3>
-              <span class="project-date">10 Aug, 2023</span>
-            </div>
-          </div>
-          <div class="project-card" data-category="mobile">
-            <div class="project-image">
-              <img
-                src="https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=500"
-                alt="Food App"
-              />
-              <div class="project-overlay">
-                <button class="view-btn"><i class="fas fa-eye"></i></button>
-              </div>
-            </div>
-            <div class="project-info">
-              <span class="project-category">Mobile Design</span>
-              <h3>Create the innovative way to present in Digital Media</h3>
-              <span class="project-date">05 Aug, 2023</span>
-            </div>
-          </div>
+          </a>
         </div>
       </div>
     </section>
@@ -316,49 +197,18 @@
           <p>What my clients say about my work and collaboration experience</p>
         </div>
         <div class="testimonials-grid">
-          <div class="testimonial-card">
+          <div class="testimonial-card" v-for="testimonial in testimonials" :key="testimonial.name">
             <div class="testimonial-header">
               <div class="client-info">
-                <h4>Elena Sigurd</h4>
-                <span>Manager</span>
+                <h4>{{ testimonial.name }}</h4>
+                <span>{{ testimonial.position }}</span>
               </div>
               <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
+                <i class="fas fa-star" v-for="n in 5" :key="n"></i>
                 <span>5.0</span>
               </div>
             </div>
-            <p>
-              "Working with Rakibul was an absolute pleasure. His attention to
-              detail and creative approach helped us achieve exactly what we
-              envisioned. The final design exceeded our expectations and our
-              users love the new interface."
-            </p>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-header">
-              <div class="client-info">
-                <h4>David Sigurd</h4>
-                <span>CEO</span>
-              </div>
-              <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <span>5.0</span>
-              </div>
-            </div>
-            <p>
-              "Professional, creative, and highly skilled. Rakibul delivered
-              outstanding results on time and within budget. His user-centered
-              approach and technical expertise make him an invaluable partner
-              for any design project."
-            </p>
+            <p>{{ testimonial.text }}</p>
           </div>
         </div>
       </div>
@@ -373,22 +223,18 @@
         </div>
         <div class="contact-content">
           <div class="contact-form">
-            <form>
+            <form @submit.prevent="submitForm">
               <div class="form-group">
-                <input type="text" placeholder="Your Name" required />
+                <input type="text" placeholder="Your Name" v-model="form.name" required />
               </div>
               <div class="form-group">
-                <input type="email" placeholder="Your Email" required />
+                <input type="email" placeholder="Your Email" v-model="form.email" required />
               </div>
               <div class="form-group">
-                <input type="text" placeholder="Project Subject" required />
+                <input type="text" placeholder="Project Subject" v-model="form.subject" required />
               </div>
               <div class="form-group">
-                <textarea
-                  placeholder="Your Message"
-                  rows="6"
-                  required
-                ></textarea>
+                <textarea placeholder="Your Message" rows="6" v-model="form.message" required></textarea>
               </div>
               <button type="submit" class="btn-primary send">
                 Send Message
@@ -410,7 +256,8 @@
           <div class="social-links">
             <a href="https://www.facebook.com/nehad.khan.5667" target="_blank"><i class="fab fa-facebook-f"></i></a>
             <a href="https://www.behance.net/rakibulnehad" target="_blank"><i class="fa-brands fa-behance"></i></a>
-            <a href="https://www.linkedin.com/in/rakibul-hasan-khan-423060249/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.linkedin.com/in/rakibul-hasan-khan-423060249/" target="_blank"><i
+                class="fab fa-linkedin-in"></i></a>
             <a href="https://www.instagram.com/_l_nehad_l_/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
           </div>
         </div>
@@ -419,7 +266,155 @@
         </div>
       </div>
     </footer>
+  </div>
 
-    <script src="script.js"></script>
-  </body>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        mobileMenuOpen: false,
+        activeFilter: 'all',
+        form: {
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        },
+        services: [
+          {
+            icon: 'fas fa-desktop',
+            title: 'Website Design',
+            description: 'Creative and modern website designs that engage users and deliver results'
+          },
+          {
+            icon: 'fas fa-mobile-alt',
+            title: 'App Design',
+            description: 'Mobile app interfaces that provide seamless user experiences across platforms'
+          },
+          {
+            icon: 'fas fa-paint-brush',
+            title: 'Creative Solutions',
+            description: 'Innovative design solutions tailored to your brand and business objectives'
+          },
+          {
+            icon: 'fas fa-code',
+            title: 'Business Intelligence',
+            description: 'Data-driven design decisions that help optimize user experience and conversions'
+          },
+          {
+            icon: 'fas fa-chart-bar',
+            title: 'Marketing/branding',
+            description: 'Complete brand identity and marketing material design for your business'
+          },
+          {
+            icon: 'fas fa-layer-group',
+            title: 'Logo Design',
+            description: 'Professional logo designs that represent your brand identity perfectly'
+          }
+        ],
+        skills: [
+          { name: 'Figma', percentage: 100 },
+          { name: 'Adobe XD', percentage: 100 },
+          { name: 'Adobe Illustrator', percentage: 80 },
+          { name: 'Adobe Photoshop', percentage: 60 },
+          { name: 'Canva', percentage: 80 }
+        ],
+        projects: [
+          {
+            title: 'Social Media App Design',
+            category: 'mobile',
+            categoryDisplay: 'Mobile Design',
+            image: 'https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg?auto=compress&cs=tinysrgb&w=500',
+            date: '15 Aug, 2023',
+            link: "https://chat.deepseek.com/",
+          },
+          {
+            title: 'Sugee - Loan Management System for Rural Sector',
+            category: 'website',
+            categoryDisplay: 'Website Design',
+            image: 'https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=500',
+            date: '10 Aug, 2023',
+            link: "https://chat.deepseek.com/",
+          },
+          {
+            title: 'Sugee - Loan Management System for Rural Sector',
+            category: 'mobile',
+            categoryDisplay: 'Mobile Design',
+            image: 'https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=500',
+            date: '10 Aug, 2023',
+            link: "https://chat.deepseek.com/",
+          },
+          {
+            title: 'Create the innovative way to present in Digital Media',
+            category: 'mobile',
+            categoryDisplay: 'Mobile Design',
+            image: 'https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=500',
+            date: '05 Aug, 2023',
+            link: "https://chat.deepseek.com/",
+          }
+        ],
+        testimonials: [
+          {
+            name: 'Elena Sigurd',
+            position: 'Manager',
+            text: '"Working with Rakibul was an absolute pleasure. His attention to detail and creative approach helped us achieve exactly what we envisioned. The final design exceeded our expectations and our users love the new interface."'
+          },
+          {
+            name: 'David Sigurd',
+            position: 'CEO',
+            text: '"Professional, creative, and highly skilled. Rakibul delivered outstanding results on time and within budget. His user-centered approach and technical expertise make him an invaluable partner for any design project."'
+          }
+        ]
+      },
+      computed: {
+        filteredProjects() {
+          if (this.activeFilter === 'all') {
+            return this.projects;
+          }
+          return this.projects.filter(project => project.category === this.activeFilter);
+        }
+      },
+      methods: {
+        toggleMobileMenu() {
+          this.mobileMenuOpen = !this.mobileMenuOpen;
+          // You can add logic here to show/hide mobile menu
+        },
+        scrollToSection(sectionId) {
+          const element = document.getElementById(sectionId);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        },
+        setFilter(filter) {
+          this.activeFilter = filter;
+        },
+        submitForm() {
+          // Handle form submission here
+          console.log('Form submitted:', this.form);
+          alert('Thank you for your message! I will get back to you soon.');
+
+          // Reset form
+          this.form = {
+            name: '',
+            email: '',
+            subject: '',
+            message: ''
+          };
+        }
+      }
+    });
+  </script>
+  <style>
+    /* Add any additional styles needed for Vue components */
+    .filter-btn.active {
+      background-color: #3a86ff;
+      color: white;
+    }
+  </style>
+
+
+
+  <script src="script.js"></script>
+</body>
+
 </html>
