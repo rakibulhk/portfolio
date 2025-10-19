@@ -84,9 +84,11 @@ body {
   color: white;
   border: none;
   padding: 10px 25px;
+  text-decoration: none;
   border-radius: 25px;
   font-weight: 600;
   cursor: pointer;
+  font-size: 13px;
   transition: all 0.3s ease;
 }
 
