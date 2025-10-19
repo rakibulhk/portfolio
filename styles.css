@@ -994,3 +994,73 @@ body {
     font-size: 2rem;
   }
 }
+
+/* Reveal utility for staggered hero animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: slideUpFade 700ms ease-out forwards;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+@keyframes slideUpFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Floating dots created dynamically */
+.floating-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  position: absolute;
+  background: rgba(0, 212, 255, 0.6);
+}
+
+/* Cursor trail dot */
+.cursor-trail {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  background: rgba(0, 212, 255, 0.6);
+  transform: translate(-50%, -50%);
+  transition: all 0.25s ease-out;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .floating-dot, .cursor-trail, .animated-lines {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Typewriter caret */
+.typewriter {
+  display: inline-block;
+  position: relative;
+}
+.typewriter.typing::after {
+  content: '';
+  position: absolute;
+  right: -8px;
+  top: 0.12em;
+  width: 2px;
+  height: 1em;
+  background: #00d4ff;
+  animation: caretBlink 800ms steps(1) infinite;
+}
+
+@keyframes caretBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typewriter.typing::after { animation: none; }
+}
