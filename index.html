@@ -1,655 +1,832 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rakibul Hasan Khan - UX UI Designer</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Vue.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rakibul Hasan Khan - UX UI Designer</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-  <!-- Vue.js CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-</head>
+    <!-- Email CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  </head>
 
-<body>
-  <div id="app">
-    <!-- Navigation -->
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-logo">
-          <span>bd UX</span>
-        </div>
-        <ul class="nav-menu">
-          <li><a href="#home" @click="scrollToSection('home')">Home</a></li>
-          <li><a href="#services" @click="scrollToSection('services')">Services</a></li>
-          <li><a href="#about" @click="scrollToSection('about')">About</a></li>
-          <li><a href="#projects" @click="scrollToSection('projects')">Projects</a></li>
-          <li><a href="mailto:rakibulhasannehad2025@gmail.com">Contact</a></li>
-        </ul>
-        <a class="contact-btn" href="mailto:rakibulhasannehad2025@gmail.com" >CONTACT NOW</a>
-    
-      </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-      <div class="hero-background">
-        <div class="animated-lines"></div>
-        <div class="floating-elements"></div>
-      </div>
-      <div class="hero-container">
-        <div class="hero-content" style="margin-top: 80px;">
-          <h1 class="hero-name">RAKIBUL</h1>
-          <h3 class="hero-surname">HASAN KHAN</h3>
-          <h2 class="hero-title">UX UI DESIGNER</h2>
-          <p class="hero-description">
-            I'm passionate about designing beautiful and functional user
-            experiences that solve real-world problems. With expertise in modern
-            design tools and user-centered design principles.
-          </p>
-          <div class="hero-buttons">
-            <button class="btn-primary" @click="scrollToSection('contact')">HIRE ME</button>
-            <button class="btn-secondary" @click="scrollToSection('projects')">Explore my work</button>
+  <body>
+    <div id="app">
+      <!-- Navigation -->
+      <nav class="navbar">
+        <div class="nav-container">
+          <div class="nav-logo">
+            <span>bd UX</span>
           </div>
-          <div class="hero-stats">
-            <div class="stat-item">
-              <span class="stat-number">1+</span>
-              <span class="stat-label">Years Experience</span>
+          <ul class="nav-menu">
+            <li><a href="#home" @click="scrollToSection('home')">Home</a></li>
+            <li>
+              <a href="#services" @click="scrollToSection('services')"
+                >Services</a
+              >
+            </li>
+            <li>
+              <a href="#about" @click="scrollToSection('about')">About</a>
+            </li>
+            <li>
+              <a href="#projects" @click="scrollToSection('projects')"
+                >Projects</a
+              >
+            </li>
+            <li>
+              <a href="mailto:rakibulhasannehad2025@gmail.com">Contact</a>
+            </li>
+          </ul>
+          <a class="contact-btn" href="mailto:rakibulhasannehad2025@gmail.com"
+            >CONTACT NOW</a
+          >
+        </div>
+      </nav>
+
+      <!-- Hero Section -->
+      <section id="home" class="hero">
+        <div class="hero-background">
+          <div class="animated-lines"></div>
+          <div class="floating-elements"></div>
+        </div>
+        <div class="hero-container">
+          <div class="hero-content" style="margin-top: 80px">
+            <h1 class="hero-name">RAKIBUL</h1>
+            <h3 class="hero-surname">HASAN KHAN</h3>
+            <h2 class="hero-title">UX UI DESIGNER</h2>
+            <p class="hero-description">
+              I'm passionate about designing beautiful and functional user
+              experiences that solve real-world problems. With expertise in
+              modern design tools and user-centered design principles.
+            </p>
+            <div class="hero-buttons">
+              <button class="btn-primary" @click="scrollToSection('contact')">
+                HIRE ME
+              </button>
+              <button
+                class="btn-secondary"
+                @click="scrollToSection('projects')"
+              >
+                Explore my work
+              </button>
             </div>
-            <div class="stat-item">
-              <span class="stat-number">25+</span>
-              <span class="stat-label">Projects Done</span>
+            <div class="hero-stats">
+              <div class="stat-item">
+                <span class="stat-number">1+</span>
+                <span class="stat-label">Years Experience</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">25+</span>
+                <span class="stat-label">Projects Done</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="scroll-down" @click="scrollToSection('services')">
-        <span>Scroll Down</span>
-        <i class="fas fa-arrow-down"></i>
-      </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-      <div class="container">
-        <div class="section-header">
-          <h2>My <span class="highlight">Services</span></h2>
-          <p>What can I do for you? I provide comprehensive design solutions</p>
+        <div class="scroll-down" @click="scrollToSection('services')">
+          <span>Scroll Down</span>
+          <i class="fas fa-arrow-down"></i>
         </div>
-        <div class="services-grid">
-          <div class="service-card" v-for="service in services" :key="service.title">
-            <div class="service-icon">
-              <i :class="service.icon"></i>
+      </section>
+
+      <!-- Services Section -->
+      <section id="services" class="services">
+        <div class="container">
+          <div class="section-header">
+            <h2>My <span class="highlight">Services</span></h2>
+            <p>
+              What can I do for you? I provide comprehensive design solutions
+            </p>
+          </div>
+          <div class="services-grid">
+            <div
+              class="service-card"
+              v-for="service in services"
+              :key="service.title"
+            >
+              <div class="service-icon">
+                <i :class="service.icon"></i>
+              </div>
+              <h3>{{ service.title }}</h3>
+              <p>{{ service.description }}</p>
+              <a href="#" class="service-link">
+                Explore Service <i class="fas fa-arrow-right"></i>
+              </a>
             </div>
-            <h3>{{ service.title }}</h3>
-            <p>{{ service.description }}</p>
-            <a href="#" class="service-link">
-              Explore Service <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="about">
+        <div class="container">
+          <div class="section-header">
+            <h2>My <span class="highlight">Specialty</span></h2>
+            <p>
+              I specialize in creating comprehensive design solutions that
+              combine creativity with functionality.
+            </p>
+          </div>
+          <div class="about-content">
+            <div class="about-image">
+              <img src="./images/rakibulhk.png" alt="Rakibul Hasan Khan" />
+            </div>
+            <div class="about-text">
+              <p>
+                I believe that great design is about solving problems with both
+                beauty and functionality. With over 1 years of experience in
+                UX/UI design, I have worked with diverse clients ranging from
+                startups to established enterprises. My approach combines user
+                research, modern design principles, and cutting-edge technology
+                to create experiences that users love and businesses value.
+              </p>
+              <p>
+                My expertise spans across web design, mobile app design,
+                branding, and user experience strategy. I'm passionate about
+                staying updated with the latest design trends and technologies
+                to deliver solutions that are not only visually appealing but
+                also highly functional and user-friendly. .
+              </p>
+              <button class="btn-primary">
+                <a
+                  style="color: white; text-decoration: none"
+                  href="https://drive.google.com/file/d/19g7IaUCB5biZn1ayU3LUuy7HyFRJJdZ4/view?usp=sharing"
+                  target="_blank"
+                >
+                  <i class="fas fa-download"></i> Download Resume</a
+                >
+              </button>
+            </div>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-circle" v-for="skill in skills" :key="skill.name">
+              <div class="circle-progress" :data-percent="skill.percentage">
+                <div class="circle-fill"></div>
+                <div class="circle-text">{{ skill.percentage }}%</div>
+              </div>
+              <span>{{ skill.name }}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="projects">
+        <div class="container">
+          <div class="section-header">
+            <h2>My <span class="highlight">Project</span></h2>
+            <p>Take a look at some of my recent work and creative projects</p>
+          </div>
+          <div class="project-filter">
+            <button
+              class="filter-btn"
+              :class="{ active: activeFilter === 'all' }"
+              @click="setFilter('all')"
+            >
+              All
+            </button>
+            <button
+              class="filter-btn"
+              :class="{ active: activeFilter === 'App Design' }"
+              @click="setFilter('App Design')"
+            >
+              App Design
+            </button>
+            <button
+              class="filter-btn"
+              :class="{ active: activeFilter === 'Website Design' }"
+              @click="setFilter('Website Design')"
+            >
+              Website Design
+            </button>
+            <button
+              class="filter-btn"
+              :class="{ active: activeFilter === 'Case Study' }"
+              @click="setFilter('Case Study')"
+            >
+              Case Study
+            </button>
+            <button
+              class="filter-btn"
+              :class="{ active: activeFilter === 'Branding' }"
+              @click="setFilter('Branding')"
+            >
+              Branding
+            </button>
+          </div>
+          <div class="projects-grid">
+            <a
+              style="text-decoration: none"
+              class="project-card"
+              v-for="project in filteredProjects"
+              :key="project.title"
+              :href="project.link"
+              target="_blank"
+              :data-category="project.category"
+            >
+              <div class="project-image">
+                <img :src="project.image" :alt="project.title" />
+                <div class="project-overlay">
+                  <button class="view-btn"><i class="fas fa-eye"></i></button>
+                </div>
+              </div>
+              <div class="project-info">
+                <span class="project-category"
+                  >{{ project.categoryDisplay }}</span
+                >
+                <h3>{{ project.title }}</h3>
+                <span class="project-date">{{ project.date }}</span>
+              </div>
             </a>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-      <div class="container">
-        <div class="section-header">
-          <h2>My <span class="highlight">Specialty</span></h2>
-          <p>
-            I specialize in creating comprehensive design solutions that combine
-            creativity with functionality.
-          </p>
-        </div>
-        <div class="about-content">
-          <div class="about-image">
-            <img src="./images/rakibulhk.png" alt="Rakibul Hasan Khan" />
-          </div>
-          <div class="about-text">
+      <!-- Testimonials Section -->
+      <section class="testimonials">
+        <div class="container">
+          <div class="section-header">
+            <h2>Client's <span class="highlight">Feedback</span></h2>
             <p>
-              I believe that great design is about solving problems with both
-              beauty and functionality. With over 1 years of experience in UX/UI
-              design, I have worked with diverse clients ranging from startups
-              to established enterprises. My approach combines user research,
-              modern design principles, and cutting-edge technology to create
-              experiences that users love and businesses value.
+              What my clients say about my work and collaboration experience
             </p>
-            <p>
-              My expertise spans across web design, mobile app design, branding,
-              and user experience strategy. I'm passionate about staying updated
-              with the latest design trends and technologies to deliver
-              solutions that are not only visually appealing but also highly
-              functional and user-friendly.
-              
-              
-              .
-
-              
-            </p>
-            <button class="btn-primary">
-              <a style="color: white; text-decoration: none;"
-                href="https://drive.google.com/file/d/19g7IaUCB5biZn1ayU3LUuy7HyFRJJdZ4/view?usp=sharing"
-                target="_blank">
-                <i class="fas fa-download"></i> Download Resume</a>
-            </button>
           </div>
-        </div>
-        <div class="stats-grid">
-          <div class="stat-circle" v-for="skill in skills" :key="skill.name">
-            <div class="circle-progress" :data-percent="skill.percentage">
-              <div class="circle-fill"></div>
-              <div class="circle-text">{{ skill.percentage }}%</div>
+          <div class="testimonials-grid">
+            <div
+              class="testimonial-card"
+              v-for="testimonial in testimonials"
+              :key="testimonial.name"
+            >
+              <div class="testimonial-header">
+                <div class="client-info">
+                  <h4>{{ testimonial.name }}</h4>
+                  <span>{{ testimonial.position }}</span>
+                </div>
+                <div class="rating">
+                  <i class="fas fa-star" v-for="n in 5" :key="n"></i>
+                  <span>5.0</span>
+                </div>
+              </div>
+              <p>{{ testimonial.text }}</p>
             </div>
-            <span>{{ skill.name }}</span>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-      <div class="container">
-        <div class="section-header">
-          <h2>My <span class="highlight">Project</span></h2>
-          <p>Take a look at some of my recent work and creative projects</p>
-        </div>
-        <div class="project-filter">
-          <button class="filter-btn" :class="{ active: activeFilter === 'all' }" @click="setFilter('all')">
-            All
-          </button>
-          <button class="filter-btn" :class="{ active: activeFilter === 'App Design' }" @click="setFilter('App Design')">
-            App Design
-          </button>
-          <button class="filter-btn" :class="{ active: activeFilter === 'Website Design' }" @click="setFilter('Website Design')">
-            Website Design
-          </button>
-          <button class="filter-btn" :class="{ active: activeFilter === 'Case Study' }"
-            @click="setFilter('Case Study')">
-            Case Study
-          </button>
-          <button class="filter-btn" :class="{ active: activeFilter === 'Branding' }" @click="setFilter('Branding')">
-            Branding
-          </button>
-        </div>
-        <div class="projects-grid">
-          <a style="text-decoration:  none;" class="project-card" v-for="project in filteredProjects" :key="project.title" :href="project.link" target="_blank"
-            :data-category="project.category">
-            <div class="project-image">
-              <img :src="project.image" :alt="project.title" />
-              <div class="project-overlay">
-                <button class="view-btn"><i class="fas fa-eye"></i></button>
-              </div>
+      <!-- Contact Section -->
+      <section id="contact" class="contact">
+        <div class="container">
+          <div class="section-header">
+            <h2>For <span class="highlight">Contact</span></h2>
+            <p>Let's discuss your next project and bring your ideas to life</p>
+          </div>
+          <div class="contact-content">
+            <div class="contact-form">
+              <form @submit.prevent="submitForm">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    placeholder="Your Name"
+                    v-model="form.name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="email"
+                    placeholder="Your Email"
+                    v-model="form.email"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    placeholder="Project Subject"
+                    v-model="form.subject"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <textarea
+                    placeholder="Your Message"
+                    rows="6"
+                    v-model="form.message"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn-primary send">
+                  Send Message
+                </button>
+              </form>
             </div>
-            <div class="project-info">
-              <span class="project-category">{{ project.categoryDisplay }}</span>
-              <h3>{{ project.title }}</h3>
-              <span class="project-date">{{ project.date }}</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-content">
+            <div class="footer-info">
+              <h3>Rakibul Hasan Khan</h3>
+              <p>UX/UI Designer</p>
             </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-      <div class="container">
-        <div class="section-header">
-          <h2>Client's <span class="highlight">Feedback</span></h2>
-          <p>What my clients say about my work and collaboration experience</p>
-        </div>
-        <div class="testimonials-grid">
-          <div class="testimonial-card" v-for="testimonial in testimonials" :key="testimonial.name">
-            <div class="testimonial-header">
-              <div class="client-info">
-                <h4>{{ testimonial.name }}</h4>
-                <span>{{ testimonial.position }}</span>
-              </div>
-              <div class="rating">
-                <i class="fas fa-star" v-for="n in 5" :key="n"></i>
-                <span>5.0</span>
-              </div>
+            <div class="social-links">
+              <a
+                href="https://www.facebook.com/people/Rakibul-Hasan-Khan/pfbid07wv6nREBDaLdg3vEkxNuyz2X8tbyTzyYLNqS6x3x9Qsnx1Afid5g5eWzxutr9FWAl/"
+                target="_blank"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="https://www.behance.net/rakibulnehad" target="_blank"
+                ><i class="fa-brands fa-behance"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/rakibul-hasan-khan-423060249/"
+                target="_blank"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="https://www.instagram.com/_l_nehad_l_/" target="_blank"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
             </div>
-            <p>{{ testimonial.text }}</p>
+          </div>
+          <div class="footer-bottom">
+            <p>&copy; 2026 All rights reserved. Rakibul Hasan Khan</p>
           </div>
         </div>
-      </div>
-    </section>
+      </footer>
+    </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-      <div class="container">
-        <div class="section-header">
-          <h2>For <span class="highlight">Contact</span></h2>
-          <p>Let's discuss your next project and bring your ideas to life</p>
-        </div>
-        <div class="contact-content">
-          <div class="contact-form">
-            <form @submit.prevent="submitForm">
-              <div class="form-group">
-                <input type="text" placeholder="Your Name" v-model="form.name" required />
-              </div>
-              <div class="form-group">
-                <input type="email" placeholder="Your Email" v-model="form.email" required />
-              </div>
-              <div class="form-group">
-                <input type="text" placeholder="Project Subject" v-model="form.subject" required />
-              </div>
-              <div class="form-group">
-                <textarea placeholder="Your Message" rows="6" v-model="form.message" required></textarea>
-              </div>
-              <button type="submit" class="btn-primary send">
-                Send Message
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-info">
-            <h3>Rakibul Hasan Khan</h3>
-            <p>UX/UI Designer</p>
-          </div>
-          <div class="social-links">
-            <a href="https://www.facebook.com/people/Rakibul-Hasan-Khan/pfbid07wv6nREBDaLdg3vEkxNuyz2X8tbyTzyYLNqS6x3x9Qsnx1Afid5g5eWzxutr9FWAl/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.behance.net/rakibulnehad" target="_blank"><i class="fa-brands fa-behance"></i></a>
-            <a href="https://www.linkedin.com/in/rakibul-hasan-khan-423060249/" target="_blank"><i
-                class="fab fa-linkedin-in"></i></a>
-            <a href="https://www.instagram.com/_l_nehad_l_/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <p>&copy; 2026 All rights reserved. Rakibul Hasan Khan</p>
-        </div>
-      </div>
-    </footer>
-  </div>
-
-  <script>
-    new Vue({
-      el: '#app',
-      data: {
-        mobileMenuOpen: false,
-        activeFilter: 'all',
-        form: {
-          name: '',
-          email: '',
-          subject: '',
-          message: ''
+    <script>
+      (function () {
+        emailjs.init("SX8pROSFlFFUk-uOh");
+      })();
+      new Vue({
+        el: "#app",
+        data: {
+          mobileMenuOpen: false,
+          activeFilter: "all",
+          form: {
+            name: "",
+            email: "",
+            subject: "",
+            message: "",
+          },
+          services: [
+            {
+              icon: "fas fa-desktop",
+              title: "Website Design",
+              description:
+                "Creative and modern website designs that engage users and deliver results",
+            },
+            {
+              icon: "fas fa-mobile-alt",
+              title: "App Design",
+              description:
+                "Mobile app interfaces that provide seamless user experiences across platforms",
+            },
+            {
+              icon: "fas fa-paint-brush",
+              title: "Creative Solutions",
+              description:
+                "Innovative design solutions tailored to your brand and business objectives",
+            },
+            {
+              icon: "fas fa-code",
+              title: "Business Intelligence",
+              description:
+                "Data-driven design decisions that help optimize user experience and conversions",
+            },
+            {
+              icon: "fas fa-chart-bar",
+              title: "Marketing/branding",
+              description:
+                "Complete brand identity and marketing material design for your business",
+            },
+            {
+              icon: "fas fa-layer-group",
+              title: "Logo Design",
+              description:
+                "Professional logo designs that represent your brand identity perfectly",
+            },
+          ],
+          skills: [
+            { name: "Figma", percentage: 100 },
+            { name: "Adobe XD", percentage: 100 },
+            { name: "Adobe Illustrator", percentage: 80 },
+            { name: "Adobe Photoshop", percentage: 60 },
+            { name: "Canva", percentage: 80 },
+          ],
+          projects: [
+            {
+              title: "Vapeless app Case study",
+              category: "Case Study",
+              categoryDisplay: "Case Study",
+              image: "images/Case_study1.png",
+              date: "25 oct, 2024",
+              link: "https://www.behance.net/gallery/225889393/UXUI-Case-Study-Vapless-A-Smart-Way-to-Quit-Vaping",
+            },
+            {
+              title: "A Minimal Dating + Social Media App",
+              category: "App Design",
+              categoryDisplay: "App Design",
+              image: "images/Case_study2.png",
+              date: "10 Aug, 2025",
+              link: "https://www.behance.net/gallery/231889463/A-Minimal-Dating-Social-Media-App",
+            },
+            {
+              title: "Smart Watch UI Design & Prototype",
+              category: "Branding",
+              categoryDisplay: "Branding",
+              image: "images/Smartwatch_branding.png",
+              date: "28 Oct, 2025",
+              link: "https://www.behance.net/gallery/237410045/Time-ON-Smartwatch-UI-Design-Prototype",
+            },
+            {
+              title: "NEXORA - Galaxy Inspired Social Media App",
+              category: "Case Study",
+              categoryDisplay: "Case Study",
+              image: "images/nexora.png",
+              date: "25 Oct, 2025",
+              link: "https://www.behance.net/gallery/237105329/NEXORA-A-Social-Universe-Beyond-Imagination",
+            },
+            {
+              title: "Travelfly - Casestudy",
+              category: "Case Study",
+              categoryDisplay: "Case Study",
+              image: "images/travl_fly.png",
+              date: "10 Sep, 2025",
+              link: "https://www.behance.net/gallery/235350397/Travelfly-Casestudy",
+            },
+            {
+              title: "Luxury Car Rental website",
+              category: "Website Design",
+              categoryDisplay: "Website Design",
+              image: "images/luxury_car_rental.png",
+              date: "05 Aug, 2025",
+              link: "https://www.behance.net/gallery/237105329/NEXORA-A-Social-Universe-Beyond-Imagination",
+            },
+          ],
+          testimonials: [
+            {
+              name: "Elena Sigurd",
+              position: "Manager",
+              text: '"Working with Rakibul was an absolute pleasure. His attention to detail and creative approach helped us achieve exactly what we envisioned. The final design exceeded our expectations and our users love the new interface."',
+            },
+            {
+              name: "David Sigurd",
+              position: "CEO",
+              text: '"Professional, creative, and highly skilled. Rakibul delivered outstanding results on time and within budget. His user-centered approach and technical expertise make him an invaluable partner for any design project."',
+            },
+          ],
         },
-        services: [
-          {
-            icon: 'fas fa-desktop',
-            title: 'Website Design',
-            description: 'Creative and modern website designs that engage users and deliver results'
+        computed: {
+          filteredProjects() {
+            if (this.activeFilter === "all") {
+              return this.projects;
+            }
+            return this.projects.filter(
+              (project) => project.category === this.activeFilter,
+            );
           },
-          {
-            icon: 'fas fa-mobile-alt',
-            title: 'App Design',
-            description: 'Mobile app interfaces that provide seamless user experiences across platforms'
+        },
+        methods: {
+          toggleMobileMenu() {
+            this.mobileMenuOpen = !this.mobileMenuOpen;
+            // You can add logic here to show/hide mobile menu
           },
-          {
-            icon: 'fas fa-paint-brush',
-            title: 'Creative Solutions',
-            description: 'Innovative design solutions tailored to your brand and business objectives'
+          scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+              element.scrollIntoView({ behavior: "smooth" });
+            }
           },
-          {
-            icon: 'fas fa-code',
-            title: 'Business Intelligence',
-            description: 'Data-driven design decisions that help optimize user experience and conversions'
+          setFilter(filter) {
+            this.activeFilter = filter;
           },
-          {
-            icon: 'fas fa-chart-bar',
-            title: 'Marketing/branding',
-            description: 'Complete brand identity and marketing material design for your business'
+          submitForm() {
+            console.log(this.form.name);
+            console.log(this.form.email);
+            console.log(this.form.subject);
+            console.log(this.form.message);
+
+            if (
+              !this.form.name ||
+              !this.form.email ||
+              !this.form.subject ||
+              !this.form.message
+            ) {
+              alert("Please fill in all fields");
+              return;
+            }
+
+            emailjs
+              .send(
+                "service_hgyepd5",
+                "template_u2xlebn",
+                {
+                  from_name: this.form.name,
+                  from_email: this.form.email,
+                  subject: this.form.subject,
+                  message: this.form.message,
+                },
+                "SX8pROSFlFFUk-uOh",
+              )
+              .then(
+                (response) => {
+                  console.log("SUCCESS!", response.status, response.text);
+                  alert("Thank you for your message! I will get back to you soon.");
+                },
+                (error) => {
+                  console.log("FAILED...", error);
+                },
+              );
+
+            alert("Thank you for your message!");
+
+            this.form = {
+              name: "",
+              email: "",
+              subject: "",
+              message: "",
+            };
           },
-          {
-            icon: 'fas fa-layer-group',
-            title: 'Logo Design',
-            description: 'Professional logo designs that represent your brand identity perfectly'
+        },
+      });
+    </script>
+
+    <script>
+      // --- Robust UI animations and interaction script ---
+      // Guard DOM queries and avoid errors when elements are missing
+      const safeQuery = (sel) => document.querySelector(sel);
+      const safeQueryAll = (sel) => Array.from(document.querySelectorAll(sel));
+
+      // Mobile Navigation Toggle (guarded)
+      const hamburger = safeQuery(".hamburger");
+      const navMenu = safeQuery(".nav-menu");
+      if (hamburger && navMenu) {
+        hamburger.addEventListener("click", () => {
+          hamburger.classList.toggle("active");
+          navMenu.classList.toggle("active");
+        });
+      }
+
+      // Close mobile menu when clicking on a nav link
+      safeQueryAll(".nav-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          if (hamburger) hamburger.classList.remove("active");
+          if (navMenu) navMenu.classList.remove("active");
+        });
+      });
+
+      // Smooth scrolling for internal anchors (already provided by Vue methods, but keep safe fallback)
+      safeQueryAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          const href = this.getAttribute("href");
+          if (!href || href === "#" || href.startsWith("mailto:")) return;
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
           }
-        ],
-        skills: [
-          { name: 'Figma', percentage: 100 },
-          { name: 'Adobe XD', percentage: 100 },
-          { name: 'Adobe Illustrator', percentage: 80 },
-          { name: 'Adobe Photoshop', percentage: 60 },
-          { name: 'Canva', percentage: 80 }
-        ],
-        projects: [
-          {
-            title: 'Vapeless app Case study',
-            category: 'Case Study',
-            categoryDisplay: 'Case Study',
-            image: 'images/Case_study1.png',
-            date: '25 oct, 2024',
-            link: "https://www.behance.net/gallery/225889393/UXUI-Case-Study-Vapless-A-Smart-Way-to-Quit-Vaping",
-          },
-          {
-            title: 'A Minimal Dating + Social Media App',
-            category: 'App Design',
-            categoryDisplay: 'App Design',
-            image: 'images/Case_study2.png',
-            date: '10 Aug, 2025',
-            link: "https://www.behance.net/gallery/231889463/A-Minimal-Dating-Social-Media-App",
-          },
-          {
-            title: 'Smart Watch UI Design & Prototype',
-            category: 'Branding',
-            categoryDisplay: 'Branding',
-            image: 'images/Smartwatch_branding.png',
-            date: '28 Oct, 2025',
-            link: "https://www.behance.net/gallery/237410045/Time-ON-Smartwatch-UI-Design-Prototype",
-          },
-          {
-            title: 'NEXORA - Galaxy Inspired Social Media App',
-            category: 'Case Study',
-            categoryDisplay: 'Case Study',
-            image: 'images/nexora.png',
-            date: '25 Oct, 2025',
-            link: "https://www.behance.net/gallery/237105329/NEXORA-A-Social-Universe-Beyond-Imagination",
-          },
-          {
-            title: 'Travelfly - Casestudy',
-            category: 'Case Study',
-            categoryDisplay: 'Case Study',
-            image: 'images/travl_fly.png',
-            date: '10 Sep, 2025',
-            link: "https://www.behance.net/gallery/235350397/Travelfly-Casestudy",
-          },
-          {
-            title: 'Luxury Car Rental website',
-            category: 'Website Design',
-            categoryDisplay: 'Website Design',
-            image: 'images/luxury_car_rental.png',
-            date: '05 Aug, 2025',
-            link: "https://www.behance.net/gallery/237105329/NEXORA-A-Social-Universe-Beyond-Imagination",
-          }
-        ],
-        testimonials: [
-          {
-            name: 'Elena Sigurd',
-            position: 'Manager',
-            text: '"Working with Rakibul was an absolute pleasure. His attention to detail and creative approach helped us achieve exactly what we envisioned. The final design exceeded our expectations and our users love the new interface."'
-          },
-          {
-            name: 'David Sigurd',
-            position: 'CEO',
-            text: '"Professional, creative, and highly skilled. Rakibul delivered outstanding results on time and within budget. His user-centered approach and technical expertise make him an invaluable partner for any design project."'
-          }
-        ]
-      },
-      computed: {
-        filteredProjects() {
-          if (this.activeFilter === 'all') {
-            return this.projects;
-          }
-          return this.projects.filter(project => project.category === this.activeFilter);
+        });
+      });
+
+      // Navbar background change on scroll (guarded)
+      window.addEventListener("scroll", () => {
+        const navbar = safeQuery(".navbar");
+        if (!navbar) return;
+        if (window.scrollY > 50) {
+          navbar.style.background = "rgba(10, 10, 15, 0.98)";
+        } else {
+          navbar.style.background = "rgba(10, 10, 15, 0.95)";
         }
-      },
-      methods: {
-        toggleMobileMenu() {
-          this.mobileMenuOpen = !this.mobileMenuOpen;
-          // You can add logic here to show/hide mobile menu
-        },
-        scrollToSection(sectionId) {
-          const element = document.getElementById(sectionId);
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-          }
-        },
-        setFilter(filter) {
-          this.activeFilter = filter;
-        },
-        submitForm() {
-          // Handle form submission here
-          console.log('Form submitted:', this.form);
-          alert('Thank you for your message! I will get back to you soon.');
+      });
 
-          // Reset form
-          this.form = {
-            name: '',
-            email: '',
-            subject: '',
-            message: ''
-          };
+      // Improved circular progress animation using requestAnimationFrame for smoothness
+      function animateCircularProgress(el, targetPercent, duration = 900) {
+        const start = performance.now();
+        const initial = 0;
+
+        function tick(now) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = easeOutCubic(progress);
+          const currentPercent = Math.round(
+            initial + (targetPercent - initial) * eased,
+          );
+          const degrees = (currentPercent / 100) * 360;
+          el.style.setProperty("--progress", `${degrees}deg`);
+          const text = el.querySelector(".circle-text");
+          if (text) text.textContent = `${currentPercent}%`;
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+
+        requestAnimationFrame(tick);
+      }
+
+      function easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
+      }
+
+      // Observe stats section and animate when visible
+      const statsSection = safeQuery(".stats-grid");
+      if (statsSection) {
+        const statsObserver = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const circles = safeQueryAll(".circle-progress");
+                circles.forEach((c) => {
+                  const pct = parseInt(c.getAttribute("data-percent")) || 0;
+                  animateCircularProgress(c, pct, 1100 + Math.random() * 600);
+                });
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.5, rootMargin: "0px 0px -50px 0px" },
+        );
+
+        statsObserver.observe(statsSection);
+      }
+
+      // Project filter functionality (safer)
+      const filterButtons = safeQueryAll(".filter-btn");
+      const projectCards = safeQueryAll(".project-card");
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          filterButtons.forEach((btn) => btn.classList.remove("active"));
+          button.classList.add("active");
+          const filterValue =
+            button.getAttribute("data-filter") || button.textContent.trim();
+          projectCards.forEach((card) => {
+            const cat = card.getAttribute("data-category") || "";
+            if (
+              filterValue === "all" ||
+              filterValue.toLowerCase() === "all" ||
+              cat === filterValue
+            ) {
+              card.style.display = "block";
+              requestAnimationFrame(() => {
+                card.style.opacity = "1";
+                card.style.transform = "scale(1)";
+              });
+            } else {
+              card.style.opacity = "0";
+              card.style.transform = "scale(0.9)";
+              setTimeout(() => (card.style.display = "none"), 300);
+            }
+          });
+        });
+      });
+
+      // Contact form handling (safer selector usage)
+      // const contactForm = safeQuery('.contact-form form');
+      // if (contactForm) {
+      //   contactForm.addEventListener('submit', (e) => {
+      //     e.preventDefault();
+      //     const formData = new FormData(contactForm);
+      //     const name = formData.get('name') || '';
+      //     const email = formData.get('email') || '';
+      //     const subject = formData.get('subject') || '';
+      //     const message = formData.get('message') || '';
+      //     if (!name || !email || !subject || !message) {
+      //       alert('Please fill in all fields');
+      //       return;
+      //     }
+      //     alert('Thank you for your message! I will get back to you soon.');
+      //     contactForm.reset();
+      //   });
+      // }
+
+      // Floating elements (create dots safely)
+      function createFloatingElements() {
+        const floatingContainer = safeQuery(".floating-elements");
+        if (!floatingContainer) return;
+        // remove existing dots
+        floatingContainer
+          .querySelectorAll(".floating-dot")
+          .forEach((n) => n.remove());
+        for (let i = 0; i < 10; i++) {
+          const element = document.createElement("div");
+          element.className = "floating-dot";
+          element.style.cssText = `position:absolute;width:6px;height:6px;background:rgba(0,212,255,0.6);border-radius:50%;animation:float ${6 + Math.random() * 4}s ease-in-out infinite;animation-delay:${Math.random() * -6}s;top:${Math.random() * 100}%;left:${Math.random() * 100}%;`;
+          floatingContainer.appendChild(element);
         }
       }
-    });
-  </script>
 
-        <script>
-          // --- Robust UI animations and interaction script ---
-          // Guard DOM queries and avoid errors when elements are missing
-          const safeQuery = (sel) => document.querySelector(sel);
-          const safeQueryAll = (sel) => Array.from(document.querySelectorAll(sel));
+      window.addEventListener("load", () => {
+        createFloatingElements();
 
-          // Mobile Navigation Toggle (guarded)
-          const hamburger = safeQuery('.hamburger');
-          const navMenu = safeQuery('.nav-menu');
-          if (hamburger && navMenu) {
-            hamburger.addEventListener('click', () => {
-              hamburger.classList.toggle('active');
-              navMenu.classList.toggle('active');
-            });
+        // Hero reveal: staggered reveal for hero text/buttons
+        const revealTargets = [
+          ".hero-name",
+          ".hero-surname",
+          ".hero-title",
+          ".hero-description",
+          ".hero-buttons",
+        ];
+        revealTargets.forEach((sel, idx) => {
+          const el = safeQuery(sel);
+          if (el) {
+            el.classList.add("reveal");
+            el.style.setProperty("--reveal-delay", `${idx * 180}ms`);
           }
+        });
 
-          // Close mobile menu when clicking on a nav link
-          safeQueryAll('.nav-menu a').forEach((link) => {
-            link.addEventListener('click', () => {
-              if (hamburger) hamburger.classList.remove('active');
-              if (navMenu) navMenu.classList.remove('active');
-            });
-          });
+        // Typewriter effect for .hero-title (respect reduced-motion)
+        try {
+          const prefersReduced =
+            window.matchMedia &&
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          const heroTitle = safeQuery(".hero-title");
+          if (heroTitle && !prefersReduced) {
+            const originalText = heroTitle.textContent.trim();
+            heroTitle.dataset.original = originalText;
+            heroTitle.textContent = "";
+            heroTitle.classList.add("typewriter");
 
-          // Smooth scrolling for internal anchors (already provided by Vue methods, but keep safe fallback)
-          safeQueryAll('a[href^="#"]').forEach((anchor) => {
-            anchor.addEventListener('click', function (e) {
-              const href = this.getAttribute('href');
-              if (!href || href === '#' || href.startsWith('mailto:')) return;
-              const target = document.querySelector(href);
-              if (target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }
-            });
-          });
-
-          // Navbar background change on scroll (guarded)
-          window.addEventListener('scroll', () => {
-            const navbar = safeQuery('.navbar');
-            if (!navbar) return;
-            if (window.scrollY > 50) {
-              navbar.style.background = 'rgba(10, 10, 15, 0.98)';
-            } else {
-              navbar.style.background = 'rgba(10, 10, 15, 0.95)';
-            }
-          });
-
-          // Improved circular progress animation using requestAnimationFrame for smoothness
-          function animateCircularProgress(el, targetPercent, duration = 900) {
-            const start = performance.now();
-            const initial = 0;
-
-            function tick(now) {
-              const elapsed = now - start;
-              const progress = Math.min(elapsed / duration, 1);
-              const eased = easeOutCubic(progress);
-              const currentPercent = Math.round(initial + (targetPercent - initial) * eased);
-              const degrees = (currentPercent / 100) * 360;
-              el.style.setProperty('--progress', `${degrees}deg`);
-              const text = el.querySelector('.circle-text');
-              if (text) text.textContent = `${currentPercent}%`;
-              if (progress < 1) requestAnimationFrame(tick);
-            }
-
-            requestAnimationFrame(tick);
-          }
-
-          function easeOutCubic(t) {
-            return 1 - Math.pow(1 - t, 3);
-          }
-
-          // Observe stats section and animate when visible
-          const statsSection = safeQuery('.stats-grid');
-          if (statsSection) {
-            const statsObserver = new IntersectionObserver((entries, obs) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  const circles = safeQueryAll('.circle-progress');
-                  circles.forEach((c) => {
-                    const pct = parseInt(c.getAttribute('data-percent')) || 0;
-                    animateCircularProgress(c, pct, 1100 + Math.random() * 600);
-                  });
-                  obs.unobserve(entry.target);
-                }
-              });
-            }, { threshold: 0.5, rootMargin: '0px 0px -50px 0px' });
-
-            statsObserver.observe(statsSection);
-          }
-
-          // Project filter functionality (safer)
-          const filterButtons = safeQueryAll('.filter-btn');
-          const projectCards = safeQueryAll('.project-card');
-          filterButtons.forEach((button) => {
-            button.addEventListener('click', () => {
-              filterButtons.forEach((btn) => btn.classList.remove('active'));
-              button.classList.add('active');
-              const filterValue = button.getAttribute('data-filter') || button.textContent.trim();
-              projectCards.forEach((card) => {
-                const cat = card.getAttribute('data-category') || '';
-                if (filterValue === 'all' || filterValue.toLowerCase() === 'all' || cat === filterValue) {
-                  card.style.display = 'block';
-                  requestAnimationFrame(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'scale(1)';
-                  });
+            const typeWriter = (el, text, speed = 110) => {
+              let i = 0;
+              el.classList.add("typing");
+              function step() {
+                if (i <= text.length) {
+                  el.textContent = text.slice(0, i);
+                  i += 1;
+                  // small jitter for natural feel
+                  setTimeout(
+                    step,
+                    speed + Math.round((Math.random() - 0.5) * 40),
+                  );
                 } else {
-                  card.style.opacity = '0';
-                  card.style.transform = 'scale(0.9)';
-                  setTimeout(() => (card.style.display = 'none'), 300);
+                  el.classList.remove("typing");
                 }
-              });
-            });
-          });
-
-          // Contact form handling (safer selector usage)
-          const contactForm = safeQuery('.contact-form form');
-          if (contactForm) {
-            contactForm.addEventListener('submit', (e) => {
-              e.preventDefault();
-              const formData = new FormData(contactForm);
-              const name = formData.get('name') || '';
-              const email = formData.get('email') || '';
-              const subject = formData.get('subject') || '';
-              const message = formData.get('message') || '';
-              if (!name || !email || !subject || !message) {
-                alert('Please fill in all fields');
-                return;
               }
-              alert('Thank you for your message! I will get back to you soon.');
-              contactForm.reset();
-            });
+              step();
+            };
+
+            // Start typing after a short delay to allow reveal animation
+            setTimeout(() => typeWriter(heroTitle, originalText, 100), 420);
           }
+        } catch (e) {
+          // fail silently
+          console.warn("typewriter init failed", e);
+        }
+      });
 
-          // Floating elements (create dots safely)
-          function createFloatingElements() {
-            const floatingContainer = safeQuery('.floating-elements');
-            if (!floatingContainer) return;
-            // remove existing dots
-            floatingContainer.querySelectorAll('.floating-dot').forEach(n => n.remove());
-            for (let i = 0; i < 10; i++) {
-              const element = document.createElement('div');
-              element.className = 'floating-dot';
-              element.style.cssText = `position:absolute;width:6px;height:6px;background:rgba(0,212,255,0.6);border-radius:50%;animation:float ${6 + Math.random() * 4}s ease-in-out infinite;animation-delay:${Math.random() * -6}s;top:${Math.random() * 100}%;left:${Math.random() * 100}%;`;
-              floatingContainer.appendChild(element);
-            }
-          }
-
-          window.addEventListener('load', () => {
-            createFloatingElements();
-
-            // Hero reveal: staggered reveal for hero text/buttons
-            const revealTargets = ['.hero-name', '.hero-surname', '.hero-title', '.hero-description', '.hero-buttons'];
-            revealTargets.forEach((sel, idx) => {
-              const el = safeQuery(sel);
-              if (el) {
-                el.classList.add('reveal');
-                el.style.setProperty('--reveal-delay', `${idx * 180}ms`);
+      // Staggered fade-in observer for generic cards
+      const fadeElements = safeQueryAll(
+        ".service-card, .project-card, .testimonial-card",
+      );
+      if (fadeElements.length) {
+        const fadeObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
               }
             });
+          },
+          { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
+        );
 
-            // Typewriter effect for .hero-title (respect reduced-motion)
-            try {
-              const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-              const heroTitle = safeQuery('.hero-title');
-              if (heroTitle && !prefersReduced) {
-                const originalText = heroTitle.textContent.trim();
-                heroTitle.dataset.original = originalText;
-                heroTitle.textContent = '';
-                heroTitle.classList.add('typewriter');
+        fadeElements.forEach((element) => {
+          element.style.opacity = "0";
+          element.style.transform = "translateY(30px)";
+          element.style.transition = "all 0.6s ease-out";
+          fadeObserver.observe(element);
+        });
+      }
 
-                const typeWriter = (el, text, speed = 110) => {
-                  let i = 0;
-                  el.classList.add('typing');
-                  function step() {
-                    if (i <= text.length) {
-                      el.textContent = text.slice(0, i);
-                      i += 1;
-                      // small jitter for natural feel
-                      setTimeout(step, speed + Math.round((Math.random() - 0.5) * 40));
-                    } else {
-                      el.classList.remove('typing');
-                    }
-                  }
-                  step();
-                };
-
-                // Start typing after a short delay to allow reveal animation
-                setTimeout(() => typeWriter(heroTitle, originalText, 100), 420);
-              }
-            } catch (e) {
-              // fail silently
-              console.warn('typewriter init failed', e);
-            }
-          });
-
-          // Staggered fade-in observer for generic cards
-          const fadeElements = safeQueryAll('.service-card, .project-card, .testimonial-card');
-          if (fadeElements.length) {
-            const fadeObserver = new IntersectionObserver((entries) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  entry.target.style.opacity = '1';
-                  entry.target.style.transform = 'translateY(0)';
-                }
-              });
-            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-            fadeElements.forEach((element) => {
-              element.style.opacity = '0';
-              element.style.transform = 'translateY(30px)';
-              element.style.transition = 'all 0.6s ease-out';
-              fadeObserver.observe(element);
-            });
-          }
-
-          // Cursor trail reduced for performance; only install if device is not touch
-          if (!('ontouchstart' in window)) {
-            let mouseX = 0, mouseY = 0;
-            document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
-            function createTrail() {
-              const trail = document.createElement('div');
-              trail.className = 'cursor-trail';
-              trail.style.cssText = `position:fixed;width:6px;height:6px;background:rgba(0,212,255,0.6);border-radius:50%;pointer-events:none;z-index:9999;left:${mouseX}px;top:${mouseY}px;transform:translate(-50%,-50%);transition:all 0.3s ease-out;`;
-              document.body.appendChild(trail);
-              setTimeout(() => { trail.style.opacity = '0'; trail.style.transform = 'translate(-50%,-50%) scale(0)'; setTimeout(() => trail.remove(), 300); }, 120);
-            }
-            setInterval(createTrail, 60);
-          }
-        </script>
+      // Cursor trail reduced for performance; only install if device is not touch
+      if (!("ontouchstart" in window)) {
+        let mouseX = 0,
+          mouseY = 0;
+        document.addEventListener("mousemove", (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+        });
+        function createTrail() {
+          const trail = document.createElement("div");
+          trail.className = "cursor-trail";
+          trail.style.cssText = `position:fixed;width:6px;height:6px;background:rgba(0,212,255,0.6);border-radius:50%;pointer-events:none;z-index:9999;left:${mouseX}px;top:${mouseY}px;transform:translate(-50%,-50%);transition:all 0.3s ease-out;`;
+          document.body.appendChild(trail);
+          setTimeout(() => {
+            trail.style.opacity = "0";
+            trail.style.transform = "translate(-50%,-50%) scale(0)";
+            setTimeout(() => trail.remove(), 300);
+          }, 120);
+        }
+        setInterval(createTrail, 60);
+      }
+    </script>
+  </body>
+</html>
